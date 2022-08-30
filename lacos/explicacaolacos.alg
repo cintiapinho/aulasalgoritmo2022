@@ -73,17 +73,25 @@ escreval("-----------------REPITA ACUMULADOR E CONTADOR -----------------------"
 // EXECUTO PELO MENOS 1 VEZ PARA DEPOIS AVALIAR A CONDIÇÃO
 usuario <- "usu"
 senha<- 123
-
+cont <- 0
 repita
       escreval("digite o usuario")
       leia(usuario)
       escreval("digite a senha")
       leia(senha)
-      limpatela
+
       se ((usuario<>"usu") ou (senha<>123)) entao
-         escreval("------Usuário ou senha inválidos, tente novamente-------")
+      escreval("------Usuário ou senha inválidos, tente novamente-------")
+         cont <- cont+1
+      fimse
+      limpatela
+      se cont = 3 entao
+         escreval("Digitou usuário ou senha errado 3 vezes, sua conta foi bloqueada!!!")
+         interrompa
       fimse
 ate((usuario="usu") e (senha=123))
 
-escreval("Parabéns usuário Logado com Sucesso!!!")
+se (usuario="usu") e (senha=123) entao
+   escreval("Parabéns usuário Logado com Sucesso!!!")
+fimse
 fimalgoritmo
